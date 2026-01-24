@@ -3,7 +3,7 @@
 cd /home/ubuntu
 yes | sudo apt update
 yes | sudo apt install python3 python3-pip
-git clone https://github.com/rahulwagh/python-mysql-db-proj-1.git
+git clone https://github.com/iam-aniket-dutta/DevOps_Project_Flask_MySql_Terraform_Jekins_CICD.git
 sleep 20
 # shellcheck disable=SC2164
 cd python-mysql-db-proj-1
