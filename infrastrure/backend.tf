@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    region       = var.region
-    bucket       = var.bucket_name
+    region       = "us-east-1"
+    bucket       = "flask-mysql-app"
     key          = "flaskapp/tfstate"
     use_lockfile = true
   }
