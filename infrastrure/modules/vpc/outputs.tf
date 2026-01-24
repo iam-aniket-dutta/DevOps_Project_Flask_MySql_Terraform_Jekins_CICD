@@ -9,8 +9,3 @@ output "publice_subnet_id_out" {
 output "public_subnet_cidr_out" {
   value = aws_subnet.public_subnet.*.cidr_block
 }
-
-
-output "publice_subnet_id_out" {
-  value = aws_subnet.public_subnet.*.id
-}
