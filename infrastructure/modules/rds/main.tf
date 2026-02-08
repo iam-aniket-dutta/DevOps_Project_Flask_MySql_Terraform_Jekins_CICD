@@ -14,7 +14,7 @@ resource "aws_db_instance" "rds" {
   identifier              = "mysql"       # DB instance name
   instance_class          = "db.t3.micro" # Define db instance type
   storage_type            = "gp2"
-  allocated_storage       = 20
+  allocated_storage       = 10
   db_subnet_group_name    = aws_db_subnet_group.db_sb_grp.name
   vpc_security_group_ids  = [var.sg_name_for_rds]
   username                = var.db_user

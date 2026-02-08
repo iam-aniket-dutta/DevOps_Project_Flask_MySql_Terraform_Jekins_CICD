@@ -70,3 +70,9 @@ variable "lb_name" {
   type        = string
   description = "Define load balancing name"
 }
+
+variable "domain_name" {
+    type = string
+    description = "Define your domain name"
+}
+

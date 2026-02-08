@@ -30,7 +30,7 @@ module "instance_module" {
   key_pair_name         = var.key_pair_name
   sg_name_for_ssh       = module.sg_module.sg_for_ssh_http_out
   sg_name_for_flask_app = module.sg_module.sg_for_flask_app_out
-  user_data             = templatefile("./instance-user-data/install-appache.sh", {})
+  user_data             = templatefile("./installation-scripting/python-install.sh", {})
 }
 
 
@@ -69,6 +69,26 @@ module "lb_module" {
   lb_target_group_arn             = module.lb_target_group_module.lb_target_group_arn_out
   lb_listener_port                = 5000
   lb_listener_protocol            = "HTTP"
+  lb_https_listener_port          = 443
+  lb_https_listener_protocol      = "HTTPS"
   lb_listener_default_action      = "forward"
   lb_target_group_attachment_port = 5000
+  crt_arn                         = module.crt_module.crt_arn_out
+}
+
+
+# Route53 Hosted zone module
+module "route53_hosted_zone_module" {
+  source      = "./modules/route53-hosted-zones"
+  domain_name = var.domain_name
+  lb_dns_name = module.lb_module.lb_dns_name_out
+  lb_zone_id  = module.lb_module.lb_zone_id
+}
+
+
+# Cirtificate maanger module
+module "crt_module" {
+  source                 = "./modules/cirtificate-manager"
+  domain_name            = var.domain_name
+  route53_hosted_zone_id = module.route53_hosted_zone_module.route53_hosted_zone_id_out
 }

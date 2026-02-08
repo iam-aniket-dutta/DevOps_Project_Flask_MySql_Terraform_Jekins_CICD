@@ -4,46 +4,62 @@ variable "created_by" {
 }
 
 variable "lb_name" {
-  type = string
+  type        = string
   description = "Define load balancer name"
 }
 
 variable "lb_type" {
-  type = string
+  type        = string
   description = "Define load balancer name"
 }
 
 variable "sg_name_for_ssh" {
-  type = string
+  type        = string
   description = "Define secuirity group for ssh connecion"
 }
 
 variable "subnet_ids" {
-  type = list(string)
+  type        = list(string)
   description = "Define public sunbet ids"
 }
 
 variable "lb_target_group_arn" {
-  type = string
+  type        = string
   description = "Define load balanncer target group arn"
 }
 
 variable "lb_listener_port" {
-   type = string
+  type        = string
   description = "Define load balanncer listener port"
 }
 
 variable "lb_listener_protocol" {
-   type = string
+  type        = string
   description = "Define load balanncer listener pootocol"
 }
 
 variable "lb_listener_default_action" {
-   type = string
+  type        = string
   description = "Define load balanncer listener action"
 }
 
 variable "lb_target_group_attachment_port" {
-   type = string
+  type        = string
   description = "Define load balanncer target group attcahment port"
+}
+
+variable "crt_arn" {
+  type        = string
+  description = "Define cirtificate manager ARN"
+}
+
+
+variable "lb_https_listener_port" {
+  type        = string
+  description = "Define load balanncer HTTPS listener port"
+}
+
+variable "lb_https_listener_protocol" {
+  type        = string
+  description = "Define load balanncer HTTPS  listener pootocol"
 }
